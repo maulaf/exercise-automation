@@ -94,25 +94,25 @@ public class userFlow {
 		GlobalVariable.password = password
 		GlobalVariable.userName = firstName
 	}
-	
+
 	@Keyword
 	def loginUser() {
 		Boolean isLogoutPresent = WebUI.verifyElementPresent(findTestObject('Object Repository/href', [('href') : '/logout']), 0, FailureHandling.OPTIONAL)
-		
-		
+
+
 		if (isLogoutPresent) {
 			WebUI.click(findTestObject('Object Repository/href', [('href') : '/logout']))
 		}else{
 			WebUI.click(findTestObject('Object Repository/href', [('href') : '/login']))
 		}
-		
+
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'login-email']), GlobalVariable.email)
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'login-password']), GlobalVariable.password)
 		WebUI.click(findTestObject('Object Repository/data-qa', [('data-qa') : 'login-button']))
-		
+
 		def xpath = "//i[@class='fa fa-user']/following-sibling::text()[contains(., 'Logged in as')]/following-sibling::b[text()='$GlobalVariable.userName']"
 		TestObject loggedInAs = new TestObject().addProperty("xpath", ConditionType.EQUALS, xpath)
-		
+
 		WebUI.verifyElementVisible(loggedInAs)
 	}
 
