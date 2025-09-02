@@ -57,10 +57,6 @@ public class userFlow {
 	def registerUser() {
 		generateTestData()
 
-		WebUI.openBrowser(GlobalVariable.URL)
-		WebUI.maximizeWindow()
-
-		WebUI.verifyElementVisible(findTestObject('Object Repository/img', [('alt') : 'Website for automation practice']))
 		WebUI.click(findTestObject('Object Repository/href', [('href') : '/login']))
 		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'New User Signup!']))
 
@@ -106,6 +102,8 @@ public class userFlow {
 			WebUI.click(findTestObject('Object Repository/href', [('href') : '/login']))
 		}
 
+		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'Login to your account']))
+
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'login-email']), GlobalVariable.email)
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'login-password']), GlobalVariable.password)
 		WebUI.click(findTestObject('Object Repository/data-qa', [('data-qa') : 'login-button']))
@@ -114,6 +112,13 @@ public class userFlow {
 		TestObject loggedInAs = new TestObject().addProperty("xpath", ConditionType.EQUALS, xpath)
 
 		WebUI.verifyElementVisible(loggedInAs)
+	}
+	
+	@Keyword
+	def logoutUser() {
+		WebUI.click(findTestObject('Object Repository/href', [('href') : '/logout']))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'Login to your account']))
+		
 	}
 
 	@Keyword

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Test Case 5 - Register User with existing email</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>fda4bedf-620f-4712-b6f3-3be0506f1f95</testCaseGuid>
+</TestCaseEntity>
