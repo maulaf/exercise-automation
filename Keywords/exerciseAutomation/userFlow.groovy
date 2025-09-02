@@ -8,6 +8,7 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
 
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
+import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.model.FailureHandling
@@ -40,6 +41,8 @@ public class userFlow {
 	String city
 	String zipCode
 	String mobileNumber
+	String subject = "test subject"
+	String message = "test message"
 
 	private void generateTestData() {
 		firstName = faker.name().firstName()
@@ -51,6 +54,7 @@ public class userFlow {
 		city = faker.country().capital()
 		zipCode = faker.address().zipCode()
 		mobileNumber = faker.phoneNumber().phoneNumber()
+		
 	}
 
 	@Keyword
@@ -113,12 +117,11 @@ public class userFlow {
 
 		WebUI.verifyElementVisible(loggedInAs)
 	}
-	
+
 	@Keyword
 	def logoutUser() {
 		WebUI.click(findTestObject('Object Repository/href', [('href') : '/logout']))
 		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'Login to your account']))
-		
 	}
 
 	@Keyword
@@ -127,5 +130,25 @@ public class userFlow {
 		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'Account Deleted!']))
 		WebUI.click(findTestObject('Object Repository/data-qa', [('data-qa') : 'continue-button']))
 		WebUI.closeBrowser()
+	}
+	
+	@Keyword
+	def contactUS() {
+		generateTestData()
+		WebUI.click(findTestObject('Object Repository/href', [('href') : '/contact_us']))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'Get In Touch']))
+		
+		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'name']), firstName)
+		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'email']), email)
+		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'subject']), subject)
+		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'message']), message)
+	}
+	
+	@Keyword
+	def uploadImage() {
+		def projectDir = RunConfiguration.getProjectDir()
+		def filePath = projectDir + '/Data Test/images.jpeg'
+		
+		WebUI.uploadFile(findTestObject('Object Repository/upload'), filePath)
 	}
 }
