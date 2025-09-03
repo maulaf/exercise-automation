@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>API 2 - POST To All Products List</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>dbfabb6b-3e10-442c-b908-40b3c9fb61cd</testCaseGuid>
+</TestCaseEntity>

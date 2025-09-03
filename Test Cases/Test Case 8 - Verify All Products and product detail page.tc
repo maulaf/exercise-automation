@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Test Case 8 - Verify All Products and product detail page</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a22264f3-10e0-4261-9f35-60fec6f3a0a1</testCaseGuid>
+</TestCaseEntity>

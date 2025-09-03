@@ -24,4 +24,9 @@
       <initValue>''</initValue>
       <name>userName</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://automationexercise.com/api'</initValue>
+      <name>RequestURL</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>API 1 - Get All Products List</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>8e79c50a-aa9e-443b-884f-632a0c66470b</testCaseGuid>
+</TestCaseEntity>

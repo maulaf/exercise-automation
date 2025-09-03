@@ -54,7 +54,6 @@ public class userFlow {
 		city = faker.country().capital()
 		zipCode = faker.address().zipCode()
 		mobileNumber = faker.phoneNumber().phoneNumber()
-		
 	}
 
 	@Keyword
@@ -131,24 +130,25 @@ public class userFlow {
 		WebUI.click(findTestObject('Object Repository/data-qa', [('data-qa') : 'continue-button']))
 		WebUI.closeBrowser()
 	}
-	
+
 	@Keyword
 	def contactUS() {
 		generateTestData()
 		WebUI.click(findTestObject('Object Repository/href', [('href') : '/contact_us']))
 		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'Get In Touch']))
-		
+
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'name']), firstName)
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'email']), email)
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'subject']), subject)
 		WebUI.setText(findTestObject('Object Repository/data-qa', [('data-qa') : 'message']), message)
 	}
-	
+
 	@Keyword
 	def uploadImage() {
 		def projectDir = RunConfiguration.getProjectDir()
 		def filePath = projectDir + '/Data Test/images.jpeg'
-		
+
 		WebUI.uploadFile(findTestObject('Object Repository/upload'), filePath)
+		WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : 'images.jpeg']))
 	}
 }
