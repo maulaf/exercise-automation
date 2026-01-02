@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Test Case 10 - Verify Subscription in home page</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>21b8749f-e5b9-4d45-b95f-f9c285ec473e</testCaseGuid>
+</TestCaseEntity>
