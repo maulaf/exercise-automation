@@ -10,6 +10,7 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
 import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
@@ -17,15 +18,36 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.click(findTestObject('Object Repository/href', [('href') : '/test_cases']))
+WebUI.click(findTestObject('Object Repository/href', [('href') : '/products']))
 
 WebUI.waitForPageLoad(0)
 
 url = WebUI.getUrl()
-assert url == "https://www.automationexercise.com/test_cases"
+assert url == "https://www.automationexercise.com/products"
 
-title = "Test Cases"
-WebUI.verifyTextPresent("Test Cases", false)
+searchProduct = findTestObject('Object Repository/id', [('id') : 'search_product'])
 
-text = "Below is the list of test Cases for you to practice the Automation. Click on the scenario for detailed Test Steps:"
-WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : text]))
+WebUI.verifyElementVisible(searchProduct)
+
+keyword = "shirt"
+
+WebUI.setText(searchProduct, keyword)
+
+btn_Search = findTestObject('Object Repository/id', [('id') : 'submit_search'])
+
+WebUI.click(btn_Search)
+
+xpath_nameProduct = "//div[@class='productinfo text-center']/p"
+TestObject nameProduct = new TestObject().addProperty("xpath", ConditionType.EQUALS, xpath_nameProduct)
+List<TestObject> element = WebUI.findWebElements(nameProduct, 30)
+
+int count = element.size()
+
+for (int i=0; i <= count; i++) {
+	
+	xpath_nameProduct = "(//div[@class='productinfo text-center']/p)[$i]"
+	TestObject nameProduct = new TestObject().addProperty("xpath", ConditionType.EQUALS, xpath_nameProduct)
+	
+	nameProduct = WebUI.getText(nameProduct)
+	
+}

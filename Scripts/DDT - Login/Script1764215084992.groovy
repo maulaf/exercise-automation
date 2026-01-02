@@ -17,15 +17,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.click(findTestObject('Object Repository/href', [('href') : '/test_cases']))
+WebUI.openBrowser(GlobalVariable.URL)
+WebUI.verifyElementVisible(findTestObject('Object Repository/img', [('alt') : 'ParaBank']))
 
-WebUI.waitForPageLoad(0)
-
-url = WebUI.getUrl()
-assert url == "https://www.automationexercise.com/test_cases"
-
-title = "Test Cases"
-WebUI.verifyTextPresent("Test Cases", false)
-
-text = "Below is the list of test Cases for you to practice the Automation. Click on the scenario for detailed Test Steps:"
-WebUI.verifyElementVisible(findTestObject('Object Repository/text', [('text') : text]))
+WebUI.setText(findTestObject('Object Repository/name', [('name') : 'username']), email)
+WebUI.setText(findTestObject('Object Repository/name', [('name') : 'password']), password)
+WebUI.click(findTestObject('Object Repository/type', [('type') : 'submit']))
+WebUI.verifyTextPresent(expected, false)

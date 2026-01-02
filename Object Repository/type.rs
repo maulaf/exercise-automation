@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>type</name>
+   <tag></tag>
+   <elementGuidId>1de2f47d-63f6-4c01-878d-fe7c218a171a</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//*[@type = '${type}' and @value = '${value}']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>${type}</value>
+      <webElementGuid>231e4954-ce57-4b1f-9ccb-c4bf3449dfb8</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>value</name>
+      <type>Main</type>
+      <value>${value}</value>
+      <webElementGuid>ab46ed43-0002-464f-9a0a-4a151814f771</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>
